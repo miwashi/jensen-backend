@@ -23,6 +23,12 @@ app.get("/", (req ,res)=>{
      }
 })
 
+app.get("/health", (req ,res)=>{
+   headers={"http_status":200, "cache-control":  "no-cache"}
+   body={"status": "available"}
+})
+
+
 app.post('/authorize', (req, res) => {
    // Insert Login Code Here
    let user = req.body.user;
@@ -31,7 +37,7 @@ app.post('/authorize', (req, res) => {
    console.log(`Password ${password}`)
 
    if(user===credentials.secretUser && password===credentials.secretPassword){
-      console.log("Authorized")
+         console.log("Authorized")
       res.status(200).send({"STATUS":"SUCCESS"})
   }else{
       console.log("Not authorized")
