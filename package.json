@@ -18,5 +18,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/miwashiab/jensen-backend"
+  },
+  "engines": {
+    "node": "17.x"
   }
 }
