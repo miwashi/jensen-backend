@@ -13,6 +13,8 @@ app.use(function (req, res, next) {
    next();
 });
 
+app.use('/healthcheck', require('./routes/healthcheck.routes'));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(cors())
 
@@ -32,6 +34,7 @@ app.get("/", (req ,res)=>{
 app.get("/health", (req ,res)=>{
    headers={"http_status":200, "cache-control":  "no-cache"}
    body={"status": "available"}
+   res.status(200).send(body)
 })
 
 
